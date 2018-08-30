@@ -46,7 +46,7 @@ namespace AmbDemo
 				code = accessCode,
 				state = config["Github:State"]
 			};
-			var response = await client.PostAsJsonAsync("access_token", new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"));
+			var response = await client.PostAsync("access_token", new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"));
 			if (!response.IsSuccessStatusCode)
 			{
 				return new BadRequestObjectResult(new { error = "Invalid request" });
